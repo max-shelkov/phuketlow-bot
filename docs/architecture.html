@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhuketLow Bot — Архитектура</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+        }
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .layer {
+            border-radius: 12px;
+            padding: 20px 24px;
+            position: relative;
+        }
+        .layer-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 2px 10px;
+            border-radius: 4px;
+        }
+        .layer-entry { background: #1e293b; border: 1px solid #334155; }
+        .layer-entry .layer-label { background: #38bdf8; color: #0f172a; }
+        .layer-handlers { background: #1e293b; border: 1px solid #334155; }
+        .layer-handlers .layer-label { background: #a78bfa; color: #0f172a; }
+        .layer-sections { background: #1e293b; border: 1px solid #334155; }
+        .layer-sections .layer-label { background: #34d399; color: #0f172a; }
+        .layer-infra { background: #1e293b; border: 1px solid #334155; }
+        .layer-infra .layer-label { background: #fbbf24; color: #0f172a; }
+        .layer-data { background: #1e293b; border: 1px solid #334155; }
+        .layer-data .layer-label { background: #f87171; color: #0f172a; }
+
+        .boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .box {
+            background: #0f172a;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            padding: 12px 16px;
+            min-width: 160px;
+            flex: 1;
+        }
+        .box-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        .box-desc {
+            font-size: 0.78rem;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+        .box .file {
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.72rem;
+            color: #64748b;
+            margin-top: 6px;
+            display: block;
+        }
+        .arrow {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #475569;
+            padding: 4px 0;
+        }
+        .flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0;
+            flex-wrap: wrap;
+        }
+        .flow-item {
+            background: #1e293b;
+            border: 1px solid #475569;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .flow-arrow {
+            color: #64748b;
+            font-size: 1.2rem;
+        }
+        .legend {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1e293b;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+        .legend h3 {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            color: #94a3b8;
+        }
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+        }
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .tech-stack {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        .tech-badge {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>PhuketLow Telegram Bot</h1>
+    <p class="subtitle">Структурная схема приложения &middot; Kotlin 2.2.0 &middot; Gradle 9.7.1</p>
+
+    <!-- Flow -->
+    <div class="flow">
+        <div class="flow-item">Пользователь (Telegram)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">getUpdates (long polling)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">Main.kt</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">Handler</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">Section</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">TelegramClient</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">API</div>
+    </div>
+
+    <div class="diagram">
+        <!-- Layer 1: Entry -->
+        <div class="layer layer-entry">
+            <span class="layer-label">Точка входа</span>
+            <div class="boxes">
+                <div class="box">
+                    <div class="box-name">Main.kt</div>
+                    <div class="box-desc">Запуск, проверка токена, long polling loop, маршрутизация updates → handlers</div>
+                    <span class="file">com.phuketlow.bot.MainKt</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <!-- Layer 2: Handlers -->
+        <div class="layer layer-handlers">
+            <span class="layer-label">Обработчики</span>
+            <div class="boxes">
+                <div class="box">
+                    <div class="box-name">MessageHandler</div>
+                    <div class="box-desc">Текстовые сообщения: /start, /menu, «Меню». Вызывает setChatMenuButton.</div>
+                    <span class="file">handlers/MessageHandler.kt</span>
+                </div>
+                <div class="box">
+                    <div class="box-name">CallbackHandler</div>
+                    <div class="box-desc">Маршрутизация callback_data: menu, villa_*, real_estate_*, excursions, cars, yachts, currency</div>
+                    <span class="file">handlers/CallbackHandler.kt</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <!-- Layer 3: Sections -->
+        <div class="layer layer-sections">
+            <span class="layer-label">Секции (бизнес-логика)</span>
+            <div class="boxes">
+                <div class="box">
+                    <div class="box-name">MainMenu</div>
+                    <div class="box-desc">Главное меню: 5 кнопок разделов</div>
+                    <span class="file">sections/MainMenu.kt</span>
+                </div>
+                <div class="box">
+                    <div class="box-name">RealEstate</div>
+                    <div class="box-desc">Аренда/покупка: список вилл, карточка, фото-альбом по URL</div>
+                    <span class="file">sections/RealEstate.kt</span>
+                </div>
+                <div class="box">
+                    <div class="box-name">SectionResponse</div>
+                    <div class="box-desc">Data class: text + keyboard (общий формат ответа секции)</div>
+                    <span class="file">sections/SectionResponse.kt</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <!-- Layer 4: Infrastructure -->
+        <div class="layer layer-infra">
+            <span class="layer-label">Инфраструктура</span>
+            <div class="boxes">
+                <div class="box">
+                    <div class="box-name">TelegramClient</div>
+                    <div class="box-desc">HTTP-запросы: sendMessage, sendMediaGroup, sendChatAction, answerCallbackQuery, getUpdates, setChatMenuButton</div>
+                    <span class="file">telegram/TelegramClient.kt</span>
+                </div>
+                <div class="box">
+                    <div class="box-name">Keyboard</div>
+                    <div class="box-desc">Построение inline-клавиатур (JSON). Чистая логика, без I/O.</div>
+                    <span class="file">telegram/Keyboard.kt</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <!-- Layer 5: Data -->
+        <div class="layer layer-data">
+            <span class="layer-label">Данные и конфигурация</span>
+            <div class="boxes">
+                <div class="box">
+                    <div class="box-name">VillaStore</div>
+                    <div class="box-desc">Чтение real_estate.xlsx (Apache POI). Методы: all(), findById(), photoUrl()</div>
+                    <span class="file">data/VillaStore.kt</span>
+                </div>
+                <div class="box">
+                    <div class="box-name">Villa</div>
+                    <div class="box-desc">Модель: id, name, category, bedrooms, area, description, photos</div>
+                    <span class="file">model/Villa.kt</span>
+                </div>
+                <div class="box">
+                    <div class="box-name">Config</div>
+                    <div class="box-desc">Токен из env TELEGRAM_BOT_TOKEN</div>
+                    <span class="file">config/Config.kt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+        <h3>Поток данных</h3>
+        <div class="legend-grid">
+            <div class="legend-item"><div class="legend-dot" style="background:#38bdf8"></div> Entry — точка входа</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> Handlers — маршрутизация</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#34d399"></div> Sections — бизнес-логика</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div> Infrastructure — I/O</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#f87171"></div> Data — данные/конфиг</div>
+        </div>
+    </div>
+
+    <!-- Tech stack -->
+    <div class="tech-stack">
+        <span class="tech-badge">Kotlin 2.2.0</span>
+        <span class="tech-badge">JVM 17</span>
+        <span class="tech-badge">OkHttp 4.11</span>
+        <span class="tech-badge">Gson 2.10</span>
+        <span class="tech-badge">Apache POI 5.2.5</span>
+        <span class="tech-badge">SLF4J</span>
+        <span class="tech-badge">Gradle 9.7.1</span>
+        <span class="tech-badge">Telegram Bot API</span>
+    </div>
+</div>
+</body>
+</html>

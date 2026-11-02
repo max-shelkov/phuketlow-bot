@@ -1,0 +1,20 @@
+package com.phuketlow.bot.config
+
+/**
+ * Bot configuration
+ *
+ * Get your bot token from Telegram's BotFather: https://t.me/BotFather
+ *
+ * The token is read from the environment variable TELEGRAM_BOT_TOKEN.
+ *
+ * Windows (PowerShell):
+ *   $env:TELEGRAM_BOT_TOKEN = "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+ *
+ * Linux / macOS:
+ *   export TELEGRAM_BOT_TOKEN="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+ */
+object Config {
+    val TOKEN: String = System.getenv("TELEGRAM_BOT_TOKEN")
+        ?: error("Переменная окружения TELEGRAM_BOT_TOKEN не задана")
+}
+
