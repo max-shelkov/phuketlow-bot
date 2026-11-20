@@ -14,10 +14,21 @@ if ! command -v java >/dev/null 2>&1; then
 fi
 java -version
 
-echo "==> 2. Сборка приложения"
+echo "==> 2. Config.kt (gitignored) — копирую из защищённой папки .config/"
+CONFIG_SRC=".config/Config.kt"
+CONFIG_DST="src/main/kotlin/com/phuketlow/bot/config/Config.kt"
+if [ -f "$CONFIG_SRC" ]; then
+    cp "$CONFIG_SRC" "$CONFIG_DST"
+    echo "    OK: $CONFIG_SRC -> $CONFIG_DST"
+else
+    echo "ВНИМАНИЕ: $CONFIG_SRC не найден. Создайте папку .config/ и положите туда Config.kt"
+    echo "    (см. Config.kt.template). Сборка может упасть с Unresolved reference."
+fi
+
+echo "==> 3. Сборка приложения"
 ./gradlew installDist --no-daemon
 
-echo "==> 3. Копирование в ${APP_DIR}"
+echo "==> 4. Копирование в ${APP_DIR}"
 sudo mkdir -p "${APP_DIR}"
 sudo cp -r build/install/phuketlow-telegram-bot/. "${APP_DIR}/"
 # Данные (xlsx) бот ищет относительно рабочей директории
@@ -30,7 +41,7 @@ sudo cp src/main/knowledge/*.md "${APP_DIR}/src/main/knowledge/" 2>/dev/null || 
 sudo mkdir -p "${APP_DIR}/data"
 sudo chown -R "${SERVICE_USER}:" "${APP_DIR}"
 
-echo "==> 4. Файл окружения с токеном"
+echo "==> 5. Файл окружения с токеном"
 if [ -f .env ]; then
     sudo cp .env "${APP_DIR}/.env"
     sudo chown "${SERVICE_USER}:" "${APP_DIR}/.env"
@@ -39,7 +50,7 @@ else
     echo "ВНИМАНИЕ: .env не найден. Создайте ${APP_DIR}/.env с строкой TELEGRAM_BOT_TOKEN=..."
 fi
 
-echo "==> 5. Настройка systemd-сервиса"
+echo "==> 6. Настройка systemd-сервиса"
 sudo cp deploy/bot.service /etc/systemd/system/${APP_NAME}.service
 sudo systemctl daemon-reload
 sudo systemctl enable ${APP_NAME}

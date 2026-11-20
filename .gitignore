@@ -35,6 +35,7 @@ Thumbs.db
 /src/main/kotlin/com/phuketlow/bot/config/Config.kt
 /src/main/kotlin/com/phuketlow/bot/config/*.json
 .env
+.config/
 
 ##
 # Runtime data (unanswered questions log, etc.)
