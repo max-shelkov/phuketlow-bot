@@ -22,7 +22,8 @@ object MainMenu {
                 "🎭 Экскурсии"    to "excursions",
                 "🚗 Аренда авто" to "cars",
                 "🛥️ Яхты"        to "yachts",
-                "💱 Обмен валюты" to "currency"
+                "💱 Обмен валюты" to "currency",
+                "💬 Поддержка"   to "support"
             ),
             withMenuButton = false // в главном меню кнопка «Меню» не нужна
         )

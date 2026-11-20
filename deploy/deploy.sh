@@ -23,6 +23,11 @@ sudo cp -r build/install/phuketlow-telegram-bot/. "${APP_DIR}/"
 # Данные (xlsx) бот ищет относительно рабочей директории
 sudo mkdir -p "${APP_DIR}/src/main/xlsx"
 sudo cp src/main/xlsx/*.xlsx "${APP_DIR}/src/main/xlsx/" 2>/dev/null || true
+# База знаний ИИ-поддержки
+sudo mkdir -p "${APP_DIR}/src/main/knowledge"
+sudo cp src/main/knowledge/*.md "${APP_DIR}/src/main/knowledge/" 2>/dev/null || true
+# Каталог для runtime-данных (unanswered_questions.log)
+sudo mkdir -p "${APP_DIR}/data"
 sudo chown -R "${SERVICE_USER}:" "${APP_DIR}"
 
 echo "==> 4. Файл окружения с токеном"

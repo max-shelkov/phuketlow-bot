@@ -4,6 +4,8 @@ import com.phuketlow.bot.config.Config
 import com.phuketlow.bot.data.VillaStore
 import com.phuketlow.bot.handlers.CallbackHandler
 import com.phuketlow.bot.handlers.MessageHandler
+import com.phuketlow.bot.knowledge.KnowledgeBase
+import com.phuketlow.bot.state.ConversationStore
 import com.phuketlow.bot.telegram.TelegramClient
 import org.slf4j.LoggerFactory
 
@@ -31,14 +33,23 @@ fun main() {
 
     // Load data
     VillaStore.init()
+    KnowledgeBase.load()
 
     logger.info("PhuketLow Bot is running!")
     logger.info("Wait for incoming messages... (Press Ctrl+C to stop)")
 
     // Long polling
     var offset = 0
+    var lastCleanupAt = System.currentTimeMillis()
     while (true) {
         try {
+            // Периодическая уборка неактивных диалогов поддержки (каждые 5 минут)
+            val now = System.currentTimeMillis()
+            if (now - lastCleanupAt > 5 * 60 * 1000L) {
+                ConversationStore.cleanup()
+                lastCleanupAt = now
+            }
+
             val updates = TelegramClient.getUpdates(offset)
             if (updates != null && updates.asJsonObject.get("ok").asBoolean) {
                 val result = updates.asJsonObject.getAsJsonArray("result")

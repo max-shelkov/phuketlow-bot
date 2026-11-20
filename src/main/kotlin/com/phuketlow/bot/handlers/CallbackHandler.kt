@@ -3,6 +3,7 @@ package com.phuketlow.bot.handlers
 import com.google.gson.JsonObject
 import com.phuketlow.bot.sections.MainMenu
 import com.phuketlow.bot.sections.RealEstate
+import com.phuketlow.bot.sections.Support
 import com.phuketlow.bot.telegram.Keyboard
 import com.phuketlow.bot.telegram.TelegramClient
 import org.slf4j.LoggerFactory
@@ -23,6 +24,11 @@ object CallbackHandler {
             data == "menu" -> {
                 MainMenu.show(chatId)
                 TelegramClient.answerCallbackQuery(callbackId)
+            }
+
+            data == "support" -> {
+                TelegramClient.answerCallbackQuery(callbackId)
+                Support.enter(chatId)
             }
 
             data.startsWith("villa_") -> {

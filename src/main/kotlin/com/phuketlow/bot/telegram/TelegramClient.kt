@@ -82,6 +82,19 @@ object TelegramClient {
         sendRequest("sendMessage", body.toString())
     }
 
+    /**
+     * Отправка БЕЗ parse_mode (plain text).
+     * Для ответов LLM: в тексте могут быть *, _, [ — любой parse_mode
+     * может сломать отправку (400 от Telegram).
+     */
+    fun sendMessagePlain(chatId: Long, text: String) {
+        val body = com.google.gson.JsonObject().apply {
+            addProperty("chat_id", chatId)
+            addProperty("text", text)
+        }
+        sendRequest("sendMessage", body.toString())
+    }
+
     fun sendMessageWithMarkup(chatId: Long, text: String, replyMarkup: com.google.gson.JsonElement, parseMode: String = "Markdown") {
         val body = com.google.gson.JsonObject().apply {
             addProperty("chat_id", chatId)
@@ -134,7 +147,9 @@ object TelegramClient {
         }
         val result = sendRequest("setChatMenuButton", body.toString())
         if (result != null && !result.asJsonObject.get("ok").asBoolean) {
-            logger.warn("Failed to set menu button for chat $chatId: $result")
+            // Не критично: кнопка меню — опциональная фича.
+            // Некоторые боты получают 400 "MenuButton has unsupported type" — игнорируем.
+            logger.debug("setChatMenuButton skipped for chat $chatId: $result")
         }
     }
 }

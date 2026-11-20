@@ -5,16 +5,28 @@ package com.phuketlow.bot.config
  *
  * Get your bot token from Telegram's BotFather: https://t.me/BotFather
  *
- * The token is read from the environment variable TELEGRAM_BOT_TOKEN.
+ * All values are read from environment variables (see .env on the server):
+ *
+ *   TELEGRAM_BOT_TOKEN — токен бота (обязательна)
+ *   AI_API_KEY         — ключ new-api (обязательна для чата поддержки)
+ *   AI_BASE_URL        — base URL new-api (по умолчанию https://ai.dshelkov.com)
+ *   AI_MODEL           — имя модели (по умолчанию qwen3.8-27b)
  *
  * Windows (PowerShell):
  *   $env:TELEGRAM_BOT_TOKEN = "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+ *   $env:AI_API_KEY = "sk-..."
  *
  * Linux / macOS:
  *   export TELEGRAM_BOT_TOKEN="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+ *   export AI_API_KEY="sk-..."
  */
 object Config {
-    val TOKEN: String = System.getenv("TELEGRAM_BOT_TOKEN")
-        ?: error("Переменная окружения TELEGRAM_BOT_TOKEN не задана")
+
+    val TOKEN: String? = System.getenv("TELEGRAM_BOT_TOKEN")
+
+    // ─── LLM (new-api, OpenAI-совместимый API) ──────────────────────────────
+    val AI_API_KEY: String? = System.getenv("AI_API_KEY")
+    val AI_BASE_URL: String = System.getenv("AI_BASE_URL") ?: "https://ai.dshelkov.com"
+    val AI_MODEL: String = System.getenv("AI_MODEL") ?: "qwen3.8-27b"
 }
 

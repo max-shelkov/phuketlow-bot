@@ -2,6 +2,8 @@ package com.phuketlow.bot.handlers
 
 import com.google.gson.JsonObject
 import com.phuketlow.bot.sections.MainMenu
+import com.phuketlow.bot.sections.Support
+import com.phuketlow.bot.state.SupportMode
 import com.phuketlow.bot.telegram.TelegramClient
 import org.slf4j.LoggerFactory
 
@@ -12,6 +14,8 @@ object MessageHandler {
 
     private val logger = LoggerFactory.getLogger("MessageHandler")
 
+    private val EXIT_COMMANDS = setOf("/start", "/menu", "Меню")
+
     fun handle(message: JsonObject) {
         val chatId = message.get("chat")?.asJsonObject?.get("id")?.asLong ?: return
         val text = message.get("text")?.asString ?: return
@@ -21,9 +25,19 @@ object MessageHandler {
         // Custom Menu Button — идемпотентный, ставим на каждом сообщении
         TelegramClient.setChatMenuButton(chatId)
 
+        // Команды выхода из режима поддержки — всегда работают
+        if (text in EXIT_COMMANDS) {
+            if (SupportMode.isActive(chatId)) {
+                Support.exit(chatId)
+            }
+            MainMenu.show(chatId)
+            return
+        }
+
         when {
-            text == "/start" || text == "/menu" || text == "Меню" ->
-                MainMenu.show(chatId)
+            // Режим поддержки активен — любой текст уходит в ИИ
+            SupportMode.isActive(chatId) ->
+                Support.ask(chatId, text)
 
             else ->
                 TelegramClient.sendMessage(
