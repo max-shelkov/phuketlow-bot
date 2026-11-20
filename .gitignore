@@ -33,5 +33,6 @@ Thumbs.db
 ##
 # Configuration files with secrets
 /src/main/kotlin/com/phuketlow/bot/config/Config.kt
+/src/main/kotlin/com/phuketlow/bot/config/*.json
 .env
 

@@ -1,0 +1,17 @@
+[Unit]
+Description=PhuketLow Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/phuketlow-bot
+EnvironmentFile=/opt/phuketlow-bot/.env
+ExecStart=/opt/phuketlow-bot/bin/phuketlow-telegram-bot
+Restart=always
+RestartSec=5
+Environment=JAVA_OPTS=-Xmx512m
+
+[Install]
+WantedBy=multi-user.target
