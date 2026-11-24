@@ -1,6 +1,7 @@
 package com.phuketlow.bot.data
 
 import com.phuketlow.bot.model.Villa
+import com.phuketlow.bot.model.VillaFilter
 import org.apache.poi.ss.usermodel.Cell
 import org.apache.poi.ss.usermodel.CellType
 import org.apache.poi.ss.usermodel.DataFormatter
@@ -149,4 +150,28 @@ object VillaStore {
     fun all(): List<Villa> = villas
 
     fun findById(id: String): Villa? = villas.find { it.id == id }
+
+    /**
+     * Фильтрация каталога по критериям. Чистая функция, без состояния.
+     * Пустой фильтр ([VillaFilter.isEmpty]) возвращает весь список.
+     *
+     * Спальни: 1/2/3 — точное совпадение, 4 — «4 и более», 0 — любое.
+     * Цена: диапазон по priceFrom (THB/мес); 0 в границе = без ограничения.
+     */
+    fun filter(f: VillaFilter): List<Villa> = villas.filter { v ->
+        (f.bedrooms == 0 ||
+            (f.bedrooms == 4 && v.bedrooms >= 4) ||
+            (f.bedrooms in 1..3 && v.bedrooms == f.bedrooms)) &&
+        (f.beach == null || v.beaches.any {
+            it.equals(f.beach, ignoreCase = true)
+        }) &&
+        (f.priceFrom == 0 || v.priceFrom >= f.priceFrom) &&
+        (f.priceTo == 0 || (v.priceFrom > 0 && v.priceFrom <= f.priceTo))
+    }
+
+    /** Отсортированный список уникальных пляжей из каталога. */
+    fun uniqueBeaches(): List<String> =
+        villas.flatMap { it.beaches }
+            .distinctBy { it.lowercase() }
+            .sortedBy { it.lowercase() }
 }

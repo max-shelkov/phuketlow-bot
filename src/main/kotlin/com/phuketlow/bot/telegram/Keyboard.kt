@@ -45,4 +45,36 @@ object Keyboard {
             })
         }
     }
+
+    /**
+     * Создаёт inline-клавиатуру из строк, в каждой строке — несколько кнопок.
+     *
+     * @param rows список строк; каждая строка — список пар (текст, callback_data)
+     * @param withMenuButton добавить ли кнопку «⬅️ Меню» в самом низу
+     */
+    fun rows(
+        rows: List<List<Pair<String, String>>>,
+        withMenuButton: Boolean = true
+    ): JsonObject {
+        val inlineKeyboard = JsonArray()
+
+        rows.forEach { row ->
+            val arr = JsonArray()
+            row.forEach { (label, callbackData) ->
+                arr.add(JsonObject().apply {
+                    addProperty("text", label)
+                    addProperty("callback_data", callbackData)
+                })
+            }
+            inlineKeyboard.add(arr)
+        }
+
+        if (withMenuButton) {
+            inlineKeyboard.add(buttonRow("⬅️ Меню", "menu"))
+        }
+
+        return JsonObject().apply {
+            add("inline_keyboard", inlineKeyboard)
+        }
+    }
 }

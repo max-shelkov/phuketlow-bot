@@ -22,6 +22,7 @@ object CallbackHandler {
 
         when {
             data == "menu" -> {
+                com.phuketlow.bot.state.ChatStates.clear(chatId)
                 MainMenu.show(chatId)
                 TelegramClient.answerCallbackQuery(callbackId)
             }
@@ -42,6 +43,50 @@ object CallbackHandler {
             data == "real_estate_rent" ||
             data == "real_estate_buy" -> {
                 val response = RealEstate.handleCallback(data, chatId)
+                TelegramClient.sendMessageWithMarkup(
+                    chatId, response.text, response.keyboard
+                )
+                TelegramClient.answerCallbackQuery(callbackId)
+            }
+
+            // ── Аренда: фильтры и пагинация ──────────────────────────────────
+            data == "rent_filters" -> {
+                val response = RealEstate.showFilters(chatId)
+                TelegramClient.sendMessageWithMarkup(
+                    chatId, response.text, response.keyboard
+                )
+                TelegramClient.answerCallbackQuery(callbackId)
+            }
+
+            data.startsWith("f_bed_") ||
+            data.startsWith("f_beach_") ||
+            data.startsWith("f_price_") -> {
+                val response = RealEstate.applyFilterOption(chatId, data)
+                TelegramClient.sendMessageWithMarkup(
+                    chatId, response.text, response.keyboard
+                )
+                TelegramClient.answerCallbackQuery(callbackId)
+            }
+
+            data == "rent_list" -> {
+                val response = RealEstate.showList(chatId)
+                TelegramClient.sendMessageWithMarkup(
+                    chatId, response.text, response.keyboard
+                )
+                TelegramClient.answerCallbackQuery(callbackId)
+            }
+
+            data.startsWith("rent_page_") -> {
+                val page = data.removePrefix("rent_page_").toIntOrNull() ?: 0
+                val response = RealEstate.showList(chatId, page)
+                TelegramClient.sendMessageWithMarkup(
+                    chatId, response.text, response.keyboard
+                )
+                TelegramClient.answerCallbackQuery(callbackId)
+            }
+
+            data == "rent_reset" -> {
+                val response = RealEstate.resetFilters(chatId)
                 TelegramClient.sendMessageWithMarkup(
                     chatId, response.text, response.keyboard
                 )
