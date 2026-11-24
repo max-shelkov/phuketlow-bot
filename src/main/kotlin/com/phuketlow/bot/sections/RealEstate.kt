@@ -54,7 +54,7 @@ object RealEstate {
                         """.trimIndent(),
                         Keyboard.inline(
                             list.map { v ->
-                                "• ${v.name} · ${v.area} · ${v.bedrooms} сп." to "villa_${v.id}"
+                                "• ${v.name} · ${v.bedrooms} сп." to "villa_${v.id}"
                             }
                         )
                     )
@@ -99,7 +99,11 @@ _Каталог в разработке…_
             }
             appendLine("🏷️ Категория: ${v.category}")
             appendLine("🛏️ Спален: ${v.bedrooms}")
-            appendLine("📍 Район: ${v.area}")
+            appendLine("🏖️ Пляж: ${v.beaches.joinToString(", ")}")
+            if (v.priceFrom > 0) {
+                appendLine("💰 От ${v.priceFrom} ฿/мес")
+                appendLine("_Точная стоимость зависит от месяца — уточнит менеджер_")
+            }
             appendLine()
             append("📷 Фото: ${urls.size}")
         }

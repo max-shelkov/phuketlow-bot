@@ -16,7 +16,8 @@ import java.io.FileInputStream
  *
  * Таблица читается **по заголовкам** первой строки, поэтому перестановка
  * колонок не ломает бота. Ожидаемые заголовки:
- * `id`, `name`, `category`, `bedrooms`, `area`, `photo1`…`photo10`.
+ * `id`, `name`, `category`, `bedrooms`, `beach`, `price_from`,
+ * `description`, `photo1`…`photo10`.
  */
 object VillaStore {
 
@@ -90,7 +91,8 @@ object VillaStore {
         val nameCol        = headerIndex["name"]     ?: 0
         val categoryCol    = headerIndex["category"] ?: 0
         val bedroomsCol    = headerIndex["bedrooms"] ?: 0
-        val areaCol        = headerIndex["area"]     ?: 0
+        val beachCol       = headerIndex["beach"]    ?: 0
+        val priceFromCol   = headerIndex["price_from"] ?: -1
         val descriptionCol = headerIndex["description"] ?: -1
         val photoCols      = (1..MAX_PHOTOS).mapNotNull { headerIndex["photo$it"] }
 
@@ -106,14 +108,19 @@ object VillaStore {
             val name        = text(row, nameCol, formatter).ifEmpty { id }
             val category    = text(row, categoryCol, formatter).ifEmpty { "Вилла" }
             val bedrooms    = int(row, bedroomsCol, formatter)
-            val area        = text(row, areaCol, formatter).ifEmpty { "Пхукет" }
+            val beaches     = text(row, beachCol, formatter)
+                .split(',')
+                .map { it.trim() }
+                .filter { it.isNotEmpty() }
+                .ifEmpty { listOf("Пхукет") }
+            val priceFrom   = if (priceFromCol >= 0) int(row, priceFromCol, formatter) else 0
             val description = if (descriptionCol >= 0) text(row, descriptionCol, formatter) else ""
             val photos      = photoCols
                 .map { col -> text(row, col, formatter) }
                 .filter { it.isNotBlank() }
                 .take(MAX_PHOTOS)
 
-            result += Villa(id, name, category, bedrooms, area, description, photos)
+            result += Villa(id, name, category, bedrooms, beaches, priceFrom, description, photos)
         }
 
         return result
@@ -129,8 +136,9 @@ object VillaStore {
             val type = it.cellType
             when (type) {
                 CellType.NUMERIC -> it.getNumericCellValue().toInt()
-                CellType.STRING -> fmt.formatCellValue(it).trim().toIntOrNull() ?: 0
-                else -> fmt.formatCellValue(it).trim().toIntOrNull() ?: 0
+                else -> fmt.formatCellValue(it).trim()
+                    .filter { ch -> ch.isDigit() }
+                    .toIntOrNull() ?: 0
             }
         } ?: 0
 

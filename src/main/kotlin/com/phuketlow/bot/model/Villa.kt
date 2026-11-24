@@ -7,7 +7,11 @@ package com.phuketlow.bot.model
  * @param name       название из колонки `name` (например, «Sea House»)
  * @param category   колонка `category` («Вилла» / «Квартира»)
  * @param bedrooms   колонка `bedrooms` (количество спален/спальных мест)
- * @param area       колонка `area` (район Пхукета)
+ * @param beaches    колонка `beach` — один или несколько пляжей,
+ *                   разделённых запятыми (например, «Патонг, Карон»)
+ * @param priceFrom  колонка `price_from` — минимальная цена (в месяц),
+ *                   0 = не указана. Точная цена зависит от месяца —
+ *                   уточняется менеджером.
  * @param photos     имена файлов из колонок `photo1..photo10` (порядок сохранён),
  *                   пустые ячейки пропускаются
  */
@@ -16,7 +20,8 @@ data class Villa(
     val name: String,
     val category: String,
     val bedrooms: Int,
-    val area: String,
+    val beaches: List<String>,
+    val priceFrom: Int,
     val description: String,
     val photos: List<String>
 )
