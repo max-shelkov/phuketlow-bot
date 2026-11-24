@@ -31,6 +31,10 @@ build/
 Thumbs.db
 
 ##
+# Office temp/lock files
+~$*
+
+##
 # Configuration files with secrets
 /src/main/kotlin/com/phuketlow/bot/config/Config.kt
 /src/main/kotlin/com/phuketlow/bot/config/*.json

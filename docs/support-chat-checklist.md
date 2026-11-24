@@ -78,8 +78,11 @@
 
 ## 9. Деплой
 
-- [ ] Добавить `AI_API_KEY` (и при необходимости `AI_BASE_URL`, `AI_MODEL`) в `.env` на сервере
-- [ ] `bash deploy/deploy.sh` на VDS (проверить, что `knowledge/` скопировался)
-- [ ] Проверить `systemctl status phuketlow-bot` и логи `journalctl -u phuketlow-bot -f`
+- [x] Добавить `AI_API_KEY` (и при необходимости `AI_BASE_URL`, `AI_MODEL`) в `.env` на сервере
+- [x] `bash deploy/deploy.sh` на VDS (проверить, что `knowledge/` скопировался)
+  - ⚠️ Нюанс: `Config.kt` gitignored — при деплое на чистом репо его нужно обновить вручную
+    (сделать из локального через base64). В этот раз сделано.
+- [x] Проверить `systemctl status phuketlow-bot` — **active (running)**
+- [x] Логи: бот подключился, 6 вилл, **KnowledgeBase loaded (4249 chars)**
 - [ ] Прогнать сценарий из Telegram на боевом боте (в т.ч. «нет в базе знаний»)
-- [ ] Запушить финальную версию в `main`
+- [x] Запушить финальную версию в `main` (коммит `5c85177`)

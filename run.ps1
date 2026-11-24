@@ -1,14 +1,16 @@
 # PhuketLow Bot - start script
 # Usage: .\run.ps1
 
-# 1) If token is already in env - use it
-# 2) Otherwise read from .env file (project root, in .gitignore)
-if (-not $env:TELEGRAM_BOT_TOKEN) {
-    $envFile = Join-Path $PSScriptRoot ".env"
-    if (Test-Path $envFile) {
-        Get-Content $envFile | ForEach-Object {
-            if ($_ -match '^\s*TELEGRAM_BOT_TOKEN\s*=\s*(.+)$') {
-                $env:TELEGRAM_BOT_TOKEN = $Matches[1].Trim().Trim('"').Trim("'")
+# 1) Read all variables from .env (project root, in .gitignore)
+#    if they are not already set in the environment
+$envFile = Join-Path $PSScriptRoot ".env"
+if (Test-Path $envFile) {
+    Get-Content $envFile | ForEach-Object {
+        if ($_ -match '^\s*([A-Z_]+)\s*=\s*(.+)$') {
+            $name = $Matches[1]
+            $value = $Matches[2].Trim().Trim('"').Trim("'")
+            if (-not (Test-Path "env:$name")) {
+                Set-Item "env:$name" $value
             }
         }
     }
@@ -19,10 +21,6 @@ if (-not $env:TELEGRAM_BOT_TOKEN) {
     Write-Error "  TELEGRAM_BOT_TOKEN=your_token_from_BotFather"
     exit 1
 }
-
-# Kill old bot processes
-taskkill /F /IM java.exe 2>$null | Out-Null
-Start-Sleep -Seconds 2
 
 # Start
 Write-Host "Starting PhuketLow Bot..." -ForegroundColor Cyan

@@ -31,9 +31,10 @@ echo "==> 3. Сборка приложения"
 echo "==> 4. Копирование в ${APP_DIR}"
 sudo mkdir -p "${APP_DIR}"
 sudo cp -r build/install/phuketlow-telegram-bot/. "${APP_DIR}/"
-# Данные (xlsx) бот ищет относительно рабочей директории
-sudo mkdir -p "${APP_DIR}/src/main/xlsx"
+# Данные (xlsx, база знаний) бот ищет относительно рабочей директории
+sudo mkdir -p "${APP_DIR}/src/main/xlsx" "${APP_DIR}/src/main/knowledge"
 sudo cp src/main/xlsx/*.xlsx "${APP_DIR}/src/main/xlsx/" 2>/dev/null || true
+sudo cp src/main/knowledge/*.md "${APP_DIR}/src/main/knowledge/" 2>/dev/null || true
 # База знаний ИИ-поддержки
 sudo mkdir -p "${APP_DIR}/src/main/knowledge"
 sudo cp src/main/knowledge/*.md "${APP_DIR}/src/main/knowledge/" 2>/dev/null || true
