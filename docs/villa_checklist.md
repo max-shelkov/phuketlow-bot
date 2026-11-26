@@ -1,0 +1,179 @@
+# Чек-лист: объекты в шаблоне real_estate.xlsx
+
+Список всех объектов, помещённых в `src/main/xlsx/real_estate.xlsx` (лист `rental`).
+
+## Вилла (69)
+
+- [ ] `02-villa` — DREAM GARDEN
+- [ ] `03-villa` — ELENA PARADISE
+- [ ] `04-villa` — MARGO VILLA
+- [ ] `05-villa` — PALMS GARDEN
+- [ ] `06-villa` — PARADISE RAWAI
+- [ ] `07-villa` — Qabalah 2br villa, Pool & Rooftop Near Bangtao
+- [ ] `08-villa` — Luxury 3br villa Wallaya with Private Pool
+- [ ] `09-villa` — Luxury 3br villa Wallaya with Private Pool
+- [ ] `11-villa` — Villa Plunge | Modern 2-bedroom with Private Pool
+- [ ] `12-villa` — Luxury 3br villa Eden with Private Pool
+- [ ] `13-villa` — Luxury 4br Rua pool villa Botanica Prestige
+- [ ] `14-villa` — Arana Luxe 3br pool villa at Botanica Four Seasons
+- [ ] `15-villa` — Villa Aura | 3br private pool | Near Naiharn Beach
+- [ ] `16-villa` — Meraya Villa with private pool Near Nai Harn beach
+- [ ] `17-villa` — Villa Fam with private pool Near Nai Harn beach
+- [ ] `18-villa` — Villa Emilia private pool Naiharn Beach
+- [ ] `19-villa` — Villa Pagai pool villa Baan Bua Estate naiharn
+- [ ] `20-villa` — Villa Pulau 3 bedroom Baan Bua Estate
+- [ ] `21-villa` — Villa Heni private pool 3br Naiharn beach
+- [ ] `22-villa` — Villa Raas 3br private pool Naiharn beach
+- [ ] `23-villa` — Villa Toba pool Baan Bua Estate naiharn beach
+- [ ] `24-villa` — Villa Togian private pool naiharn beach
+- [ ] `25-villa` — Traditional Thai 2br villa in Baan Bua Estate
+- [ ] `26-villa` — Villa Bawal 4br Private pool villa
+- [ ] `27-villa` — Villa Raja 4br Private pool villa
+- [ ] `28-villa` — Villa Bangka 4br Private pool villa Rawai
+- [ ] `29-villa` — Villa Atarata private pool Nai Harn Beach
+- [ ] `30-villa` — Villa Buton private pool Nai Harn beach
+- [ ] `31-villa` — Villa Leti 22 meters pool Naiharn Beach
+- [ ] `32-villa` — Villa Ikaroa private pool villa Kokyang Estate
+- [ ] `33-villa` — Villa Kaheru private pool Near Nai Harn beach
+- [ ] `34-villa` — Villa Hahana private pool Near Naiharn Beach
+- [ ] `35-villa` — Villa Haeata 3br pivate pool Nai Harn Beach
+- [ ] `36-villa` — Villa Emauha | pool | Thaimond residence | Naiharn
+- [ ] `37-villa` — Villa Emiemi | pool | Thaimond residence | Naiharn
+- [ ] `38-villa` — Villa Flores 3br private pool |10 min to Nai Harn
+- [ ] `39-villa` — Villa Ata 2br private pool | Nai harn beach
+- [ ] `40-villa` — Villa Miriama 2 bedroom | Near Naiharn Beach
+- [ ] `41-villa` — Villa Bulan with 3br  with Yoga house | Naiharn
+- [ ] `42-villa` — Villa Laut 3br private pool |10 min to Nai Harn
+- [ ] `43-villa` — Villa Kiana 2br private pool 10 min to Nai Harn
+- [ ] `44-villa` — Villa Hanga 3b private pool at Naiharn Beach
+- [ ] `45-villa` — Villa Moana 2br private pool Naiharn beach
+- [ ] `46-villa` — Villa Awa 2br private pool Naiharn beach
+- [ ] `47-villa` — Villa Emere 2br private pool | Nai Harn beach
+- [ ] `48-villa` — Villa Neya 2br private pool Close to Naiharn beach
+- [ ] `49-villa` — Villa Galam 2br private pool Naiharn beach
+- [ ] `50-villa` — Villa Java 2br private pool at Nai Harn Beach
+- [ ] `51-villa` — Villa Mios private pool 3 min Nai Harn Beach
+- [ ] `52-villa` — Villa Iotama private pool Nai Harn Beach
+- [ ] `53-villa` — Villa Aru private pool 3 min to Naiharn Beach
+- [ ] `54-villa` — Villa Hinako private pool Nai Harn Beach
+- [ ] `162-villa` — Villa Iorangi | 3 Bedroom Private Pool
+- [ ] `163-villa` — Solano Tropical 3br pool villa at Bang Tao
+- [ ] `164-villa` — Villa Bond | 3br private pool | near Naiharn Beach
+- [ ] `165-villa` — Villa Salika | Thai Balinese pool villa | Rawai
+- [ ] `166-villa` — Villa Mauri – Modern 4br villa with Private Pool
+- [ ] `167-villa` — Villa Hemi 2br Modern Thai style with Private pool
+- [ ] `168-villa` — Modern 3br villa Kaimana with Private Pool
+- [ ] `169-villa` — Private 3br pool villa Mana at Anchan Tropicana
+- [ ] `170-villa` — Villa Bellona 2br pool villa at Akara Nai Thon
+- [ ] `171-villa` — Villa Nama 2br pool villa at Akara Nai Thon
+- [ ] `172-villa` — Ruma 2br private pool villa at Akara Nai Thon
+- [ ] `173-villa` — Villa Nama 2br pool villa at Akara Nai Thon
+- [ ] `174-villa` — Villa Apolima 2br pool villa at Akara Nai Thon
+- [ ] `175-villa` — Villa Koa 4br pool villa at Aileen Villas Layan
+- [ ] `176-villa` — Villa Rangi 4br pool villa at Aileen Villas Layan
+- [ ] `177-villa` — Villa Rawa 4br pool villa at Aileen Villas Layan
+- [ ] `178-villa` — Villa Kauri 3-bedroom pool villa at Aileen Naithon
+
+## Кондо (19)
+
+- [ ] `55-condo` — Suite Rote | Rawai beachfront | Title condo
+- [ ] `57-condo` — Suite Tarija Rawai beachfront by Tropiclook
+- [ ] `58-condo` — Suite Bermejo | Rawai beachfront | by Tropiclook
+- [ ] `59-condo` — Suite Cotoca | Rawai beachfront | Title condo
+- [ ] `60-condo` — Suite Boano | 1br apartment in the Title 3rd phase
+- [ ] `61-condo` — Suite el Torno, 1br ground floor Rawai beachfront
+- [ ] `62-condo` — Suite Selayar | Rawai beachfront | Title condo
+- [ ] `63-condo` — Suite Talaud | Rawai beachfront | by Tropiclook
+- [ ] `65-condo` — Suite Tara | Rawai beachfront | Title condo
+- [ ] `71-condo` — Modern studio at Relife 2 min to Nai Harn beach
+- [ ] `85-condo` — Suite Luna | pool and gym access | The Ozone Condo
+- [ ] `86-condo` — Bala Suite | pool and gym access | The Ozone Condo
+- [ ] `87-condo` — Suite Melos 2br | pool & gym access | Ozone
+- [ ] `88-condo` — Suite Salina 2br | pool & gym access | Ozone
+- [ ] `89-condo` — Suite Anafi 2br | pool & gym access | Ozone
+- [ ] `132-condo` — Milos High floor 1br with Pool access at The Aqua
+- [ ] `133-condo` — Samos - Stylish 1br apartment at The Aqua Phuket
+- [ ] `134-condo` — Chios - Lakeview 1br apartment at The Aqua Phuket
+- [ ] `161-condo` — Lod 1br pool access suite at Bellevue Beachfront
+
+## Квартира (70)
+
+- [ ] `56-apt` — Suite Weh | bright and modern 1 br aparts
+- [ ] `64-apt` — Suite Arami 2br apartments facing pool 3rd floor
+- [ ] `66-apt` — Suite Montero Rawai Lago by Tropiclook
+- [ ] `67-apt` — Suite Fam 1br at Lago by Tropiclook
+- [ ] `68-apt` — Suite Berhala beautiful 1br at Naiharn beach
+- [ ] `69-apt` — Suite Vinto 2br at Lago by Tropiclook
+- [ ] `70-apt` — Suite Akko 2br at Lago by Tropiclook
+- [ ] `72-apt` — Relife Sol 2 min to Nai Harn beach
+- [ ] `73-apt` — Relife Zen 2 min to Nai Harn beach
+- [ ] `74-apt` — Relife Kai 2 min to Nai Harn beach
+- [ ] `75-apt` — Relife Rio 2 min to Nai Harn beach
+- [ ] `76-apt` — Suite Riva with Gym, Coworking & Pool access
+- [ ] `79-apt` — Suite Roma with Coworking, Gym,Pool close to beach
+- [ ] `80-apt` — Suite Scala with Gym, Coworking & Pool access
+- [ ] `81-apt` — Suite Mira with Coworking, Gym,Pool close to beach
+- [ ] `82-apt` — Suite Ostia with Gym,  pool access-Bellevue Lagoon
+- [ ] `84-apt` — Suite Avila 2br , Gym & Pool close to beach
+- [ ] `92-apt` — Lamia 1br suite at Kora Beach Resort
+- [ ] `93-apt` — Tinos 1br Suite at Kora Beach Resort
+- [ ] `95-apt` — Kea 2BR Suite at Kora Beach Resort
+- [ ] `96-apt` — Sintra Studio at Kora Beach Resort
+- [ ] `97-apt` — Tavira 1br Suite at Kora Beach Resort
+- [ ] `100-apt` — Aspet 1br Suite at Kora Beach Resort
+- [ ] `101-apt` — Estor 1br Suite at Kora Beach Resort
+- [ ] `106-apt` — Loro 2br Suite at Kora Beach Resort
+- [ ] `110-apt` — Tirat 2br Suite at Kora Beach resort
+- [ ] `112-apt` — Altea 1br suite - The Title Legendary Bangtao
+- [ ] `113-apt` — Coria 1br suite — The Title Legendary Bangtao
+- [ ] `115-apt` — Oliva 1br Suite — The Title Legendary bangtao
+- [ ] `116-apt` — Evora 1br suite - The Title Legendary Bangtao
+- [ ] `117-apt` — Porto 1br pool access suite at Title Legendary
+- [ ] `118-apt` — Delos 1br Suite — The Title Legendary bangtao
+- [ ] `119-apt` — Lourm 1br pool access suite at Title Legendary
+- [ ] `120-apt` — Coria 1br suite — The Title Legendary Bangtao
+- [ ] `121-apt` — Lindos 1br suite - The Title Legendary Bangtao
+- [ ] `122-apt` — Rafa 1br suite - The Title Legendary Bangtao
+- [ ] `123-apt` — Safi 1br suite — The Title Legendary Bangtao
+- [ ] `124-apt` — Arles 1br suite - The Title Legendary Bangtao
+- [ ] `125-apt` — Nora 1br suite - The Title Legendary Bangtao
+- [ ] `126-apt` — Rians 1br Suite — The Title Legendary bangtao
+- [ ] `127-apt` — Melia 2br with Rooftop Pool - Skypark Laguna
+- [ ] `128-apt` — Suite Sines with rooftop pool -SkyPark Celeste
+- [ ] `129-apt` — Suite Reus 2br with rooftop pool -SkyPark Celeste
+- [ ] `130-apt` — Suite Lito 1br with rooftop pool - SkyPark Celeste
+- [ ] `131-apt` — Faro Suite - Resort studio near Naiharn Beach
+- [ ] `135-apt` — Menton Studio at Sea Heaven Naithon beach
+- [ ] `136-apt` — Meta Studio at Sea Heaven Naithon beach
+- [ ] `137-apt` — Ramla Studio at Sea Heaven Naithon beach
+- [ ] `138-apt` — Nimes Studio at Sea Heaven Naithon beach
+- [ ] `139-apt` — Luso Studio at Sea Heaven Naithon beach
+- [ ] `140-apt` — Lina Studio at Sea Heaven Naithon beach
+- [ ] `141-apt` — Como Studio at Sea Heaven Naithon beach
+- [ ] `142-apt` — Bormes 2br Suite at Sea Heaven Naithon beach
+- [ ] `143-apt` — Mosa Studio at Sea Heaven Naithon beach
+- [ ] `144-apt` — Vera Studio at Sea Heaven Naithon beach
+- [ ] `145-apt` — Lucca Studio at Sea Heaven Naithon beach
+- [ ] `146-apt` — Rosa Studio at Sea Heaven Naithon beach
+- [ ] `147-apt` — Fura Studio at Sea Heaven Naithon beach
+- [ ] `148-apt` — Leros Studio at Sea Heaven Naithon beach
+- [ ] `149-apt` — Lunas Studio at Sea Heaven Naithon beach
+- [ ] `150-apt` — Asti Studio at Sea Heaven Naithon beach
+- [ ] `151-apt` — Lagos Studio at Sea Heaven Naithon beach
+- [ ] `152-apt` — Suite Jaffa at Sea Heaven Naithon beach
+- [ ] `153-apt` — Suite Gozo at Sea Heaven Naithon beach
+- [ ] `155-apt` — Moura 3br suite - Beachfront Pearl of Naithon
+- [ ] `156-apt` — Tossa 2br Suite — Diamond Resort Bangtao
+- [ ] `157-apt` — Lugo 2br Suite — Diamond Resort Bangtao
+- [ ] `158-apt` — Aveiro 3br suite — Cassia Residences at BangTao
+- [ ] `159-apt` — Monsar 3BR Suite at Laguna Beachside Residences
+- [ ] `160-apt` — Suite Atar 1br at Above Element bang tao
+
+## Сьют (4)
+
+- [ ] `77-suite` — Suite Siena with Coworking, Gym, Pool by beach
+- [ ] `78-suite` — Suite Orio with Coworking, Gym,Pool close to beach
+- [ ] `83-suite` — Suite Imola, Gym & Pool close to beach – Bellevue
+- [ ] `114-suite` — Soria Suite - The Title Legendary bangtao
+
+Всего объектов: **162**

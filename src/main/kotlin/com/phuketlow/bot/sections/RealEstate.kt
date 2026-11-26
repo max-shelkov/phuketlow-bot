@@ -23,6 +23,9 @@ object RealEstate {
 
     private const val PAGE_SIZE = 10
 
+    /** Лимит подписи к альбому (sendMediaGroup) — 1024 символа, не 4096. */
+    private const val CAPTION_LIMIT = 1024
+
     /** Варианты цены (нижняя, верхняя) THB/мес для экрана фильтров. */
     private val PRICE_OPTIONS = listOf(
         0 to 30_000,        // до 30к
@@ -251,14 +254,15 @@ _Каталог в разработке…_
         val urls = v.photos.map { name -> VillaStore.photoUrl(name) }
         logger.info("Villa ${v.name}: ${v.photos.size} photos in xlsx, ${urls.size} URL(s) ready")
 
-        // Подпись для альбома (Markdown)
-        val caption = buildString {
+        // Подпись для альбома (Markdown).
+        // Лимит подписи к альбому — 1024 символа, поэтому описание обрезаем,
+        // а характеристики (категория/спальни/пляж/цена) всегда сохраняем.
+        val header = buildString {
             appendLine("🏝️ *${v.name}*")
             appendLine()
-            if (v.description.isNotBlank()) {
-                appendLine(v.description)
-                appendLine()
-            }
+        }
+        val specs = buildString {
+            appendLine()
             appendLine("🏷️ Категория: ${v.category}")
             appendLine("🛏️ Спален: ${v.bedrooms}")
             appendLine("🏖️ Пляж: ${v.beaches.joinToString(", ")}")
@@ -269,6 +273,18 @@ _Каталог в разработке…_
             appendLine()
             append("📷 Фото: ${urls.size}")
         }
+
+        val descBudget = CAPTION_LIMIT - header.length - specs.length - 1
+        val description = when {
+            descBudget <= 40 -> ""                                  // места нет — без описания
+            v.description.length > descBudget ->
+                v.description.take(descBudget - 1).trimEnd() + "…"  // обрезаем с многоточием
+            else -> v.description
+        }
+
+        val caption = header +
+            (if (description.isNotBlank()) description + "\n" else "") +
+            specs
 
         if (urls.isNotEmpty()) {
             TelegramClient.sendChatAction(chatId, "upload_photo")
