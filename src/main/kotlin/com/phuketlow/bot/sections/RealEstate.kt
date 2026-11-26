@@ -309,6 +309,20 @@ _Каталог в разработке…_
             array.add(obj)
         }
 
-        TelegramClient.sendMediaGroup(chatId, array)
+        // Retry: Telegram периодически не успевает скачать фото по URL
+        // (WEBPAGE_CURL_FAILED) — тогда падает вся группа. Повторяем с паузой.
+        val maxAttempts = 3
+        for (attempt in 1..maxAttempts) {
+            if (TelegramClient.sendMediaGroup(chatId, array)) {
+                return
+            }
+            if (attempt < maxAttempts) {
+                val delayMs = 1500L * attempt
+                logger.info("sendMediaGroup retry $attempt/$maxAttempts in ${delayMs}ms")
+                Thread.sleep(delayMs)
+            }
+        }
+        logger.warn("sendMediaGroup failed after $maxAttempts attempts — sending caption only")
+        TelegramClient.sendMessage(chatId, caption)
     }
 }

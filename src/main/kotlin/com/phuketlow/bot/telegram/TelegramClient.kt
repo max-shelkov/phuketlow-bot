@@ -105,17 +105,19 @@ object TelegramClient {
         sendRequest("sendMessage", body.toString())
     }
 
-    fun sendMediaGroup(chatId: Long, media: com.google.gson.JsonArray) {
+    fun sendMediaGroup(chatId: Long, media: com.google.gson.JsonArray): Boolean {
         val body = com.google.gson.JsonObject().apply {
             addProperty("chat_id", chatId)
             add("media", media)
         }
         val result = sendRequest("sendMediaGroup", body.toString())
-        if (result != null && result.asJsonObject.get("ok").asBoolean) {
+        val ok = result != null && result.asJsonObject.get("ok").asBoolean
+        if (ok) {
             logger.info("sendMediaGroup OK: ${media.size()} item(s)")
         } else {
             logger.warn("sendMediaGroup FAILED: ${result?.toString()?.take(400)}")
         }
+        return ok
     }
 
     fun sendChatAction(chatId: Long, action: String = "typing") {
@@ -141,14 +143,14 @@ object TelegramClient {
         val body = com.google.gson.JsonObject().apply {
             addProperty("chat_id", chatId)
             add("menu_button", com.google.gson.JsonObject().apply {
-                addProperty("type", "text")
+                addProperty("type", "text_button")
                 addProperty("text", text)
+                addProperty("start_parameter", "menu")
             })
         }
         val result = sendRequest("setChatMenuButton", body.toString())
         if (result != null && !result.asJsonObject.get("ok").asBoolean) {
             // Не критично: кнопка меню — опциональная фича.
-            // Некоторые боты получают 400 "MenuButton has unsupported type" — игнорируем.
             logger.debug("setChatMenuButton skipped for chat $chatId: $result")
         }
     }
