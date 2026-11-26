@@ -23,26 +23,29 @@
 
 ## Недвижимость
 
-### Какие виллы можно арендовать?
-В каталоге PhuketLow — виллы и квартиры в разных районах Пхукета: Ката, Камала,
-Патонг, Сурин, Бангтао, Рача. У каждого объекта — фото, описание, количество спален и район.
-Полный список — в разделе «🏠 Недвижимость» → «🔑 Арендовать».
+### Какие объекты можно арендовать?
+В каталоге PhuketLow — **162 объекта** для аренды на Пхукете:
+- **Виллы** — 69
+- **Квартиры** — 70
+- **Кондо** — 19
+- **Сьюты** — 4
 
-Сейчас в каталоге 6 вилл (подробности ниже в этом разделе):
-- **Sea House** — Камала, 3 спальни
-- **DREAM GARDEN** — Равай, 4 спальни
-- **ELENA PARADISE** — Равай, 4 спальни
-- **MARGO VILLA** — Равай, 4 спальни
-- **PALMS GARDEN** — Равай, 3 спальни
-- **PARADISE RAWAI** — Равай, 4 спальни
+Основные пляжи: **Банг Тао** (69), **Най Харн** (68), **Равай** (30), **Лаян** (30),
+**Найтон** (22), а также Патонг, Камала, Промтеп, Ката, Карон.
+Количество спален: 1 (74 объекта), 2 (41), 3 (31), 4+ (16).
 
-### Сколько стоит аренда виллы?
-(ТЕСТОВЫЕ ДАННЫЕ — заменить реальными ценами)
-Цены зависят от района, размера и сезона. Ориентир:
-- студия/1 спальня — от 800–1500 $/мес
-- 2–3 спальни — от 1500–3500 $/мес
-- 4+ спальни — от 3500 $/мес
-Точную цену по конкретному объекту уточняйте у менеджера.
+У каждого объекта — фото, описание, количество спален, пляж и цена от.
+Полный список — в разделе «🏠 Недвижимость» → «🔑 Арендовать» (есть фильтры
+по спальням, пляжу и цене, а также пагинация по 10 объектов).
+
+### Сколько стоит аренда?
+Цены в каталоге указаны в **батах в месяц** (price_from). Диапазон:
+- **от 1 500 ฿/мес** — студии и 1-спальные квартиры (Най Харн, Равай, Найтон)
+- **1 500–5 000 ฿/мес** — большинство 1–2 спальных квартир и кондо
+- **5 000–30 000 ฿/мес** — 2–3 спальные квартиры, сьюты, виллы
+- **от 30 000 ฿/мес** — крупные виллы 4+ спальни (до 250 000 ฿/мес)
+
+Точную цену и доступность по конкретному объекту уточняйте у менеджера.
 
 ### Какие условия аренды?
 (ТЕСТОВЫЕ ДАННЫЕ — заменить реальными условиями)
@@ -51,58 +54,176 @@
 - Коммунальные услуги (электричество, вода, интернет) — по счётчикам, оплачиваются арендатором
 - Заселение — с 1-го числа месяца
 
-### Какие виллы сейчас в каталоге аренды?
+### Полный каталог аренды (162 объекта)
 
-**1. Sea House — Камала (западное побережье)**
-- 3 спальни, вилла в частном комплексе
-- Комплекс ~5 000 м², 12 отдельно стоящих домов с собственными бассейнами
-- Построен Soticon Group, сдан в декабре 2019
-- Тихий район, несколько минут до пляжа, магазинов и ресторанов
+Цены — в батах в месяц (price_from). Сортировка: по числу спален, затем по цене.
 
-**2. DREAM GARDEN — Равай**
-- 4 спальни, 5 ванных, жилая площадь 180 м², участок 490 м²
-- Частный бассейн с солёной водой 8×4 м, крытая парковка на 2 авто
-- «Умный дом», Bluetooth-колонки, ТВ 65", стиральная и посудомоечная машины
-- 5 минут до пляжей Най Харн и Равай
-- Включено: вода, оптоволоконный WiFi, Netflix/Box TV, еженедельная уборка,
-уход за садом и бассейном. Электричество — 7 бат/кВт·ч
+| Название | Категория | Спальни | Пляж(и) | Цена от, ฿/мес |
+|----------|-----------|---------|---------|----------------|
+| Relife Sol 2 min to Nai Harn beach | Квартира | 1 | Най Харн | 1500 |
+| Relife Rio 2 min to Nai Harn beach | Квартира | 1 | Най Харн | 1500 |
+| Suite Rote / Rawai beachfront / Title condo | Кондо | 1 | Най Харн, Равай | 1600 |
+| Suite Weh / bright and modern 1 br aparts | Квартира | 1 | Най Харн, Равай | 1600 |
+| Suite Tarija Rawai beachfront by Tropiclook | Кондо | 1 | Най Харн, Равай | 1600 |
+| Suite Bermejo / Rawai beachfront / by Tropiclook | Кондо | 1 | Най Харн, Равай | 1600 |
+| Suite Cotoca / Rawai beachfront / Title condo | Кондо | 1 | Най Харн, Равай | 1600 |
+| Suite Boano / 1br apartment in the Title 3rd phase | Кондо | 1 | Най Харн, Равай | 1600 |
+| Suite el Torno, 1br ground floor Rawai beachfront | Кондо | 1 | Най Харн, Равай | 1600 |
+| Suite Selayar / Rawai beachfront / Title condo | Кондо | 1 | Най Харн, Равай | 1600 |
+| Faro Suite - Resort studio near Naiharn Beach | Квартира | 1 | Най Харн, Равай | 1600 |
+| Relife Zen 2 min to Nai Harn beach | Квартира | 1 | Най Харн | 1650 |
+| Relife Kai 2 min to Nai Harn beach | Квартира | 1 | Най Харн | 1680 |
+| Sintra Studio at Kora Beach Resort | Квартира | 1 | Банг Тао, Лаян | 1700 |
+| Suite Sines with rooftop pool -SkyPark Celeste | Квартира | 1 | Банг Тао | 1700 |
+| Suite Tara / Rawai beachfront / Title condo | Кондо | 1 | Най Харн, Равай | 1750 |
+| Suite Lito 1br with rooftop pool - SkyPark Celeste | Квартира | 1 | Банг Тао | 1750 |
+| Suite Luna / pool and gym access / The Ozone Condo | Кондо | 1 | Банг Тао | 1845 |
+| Suite Orio with Coworking, Gym,Pool close to beach | Сьют | 1 | Банг Тао, Лаян | 1850 |
+| Suite Roma with Coworking, Gym,Pool close to beach | Квартира | 1 | Банг Тао, Лаян | 1850 |
+| Suite Scala with Gym, Coworking & Pool access | Квартира | 1 | Банг Тао, Лаян | 1850 |
+| Suite Mira with Coworking, Gym,Pool close to beach | Квартира | 1 | Банг Тао, Лаян | 1850 |
+| Suite Ostia with Gym,  pool access-Bellevue Lagoon | Квартира | 1 | Банг Тао, Лаян | 1850 |
+| Estor 1br Suite at Kora Beach Resort | Квартира | 1 | Банг Тао, Лаян | 1900 |
+| Nimes Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 1995 |
+| Coria 1br suite — The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 2000 |
+| Soria Suite - The Title Legendary bangtao | Сьют | 1 | Банг Тао | 2000 |
+| Coria 1br suite — The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 2000 |
+| Lod 1br pool access suite at Bellevue Beachfront | Кондо | 1 | Банг Тао, Камала | 2052 |
+| Bala Suite / pool and gym access / The Ozone Condo | Кондо | 1 | Банг Тао | 2093 |
+| Arles 1br suite - The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 2100 |
+| Evora 1br suite - The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 2150 |
+| Leros Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2165 |
+| Como Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2181 |
+| Lina Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2197 |
+| Delos 1br Suite — The Title Legendary bangtao | Квартира | 1 | Банг Тао | 2200 |
+| Lunas Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2215 |
+| Modern studio at Relife 2 min to Nai Harn beach | Кондо | 1 | Най Харн | 2232 |
+| Oliva 1br Suite — The Title Legendary bangtao | Квартира | 1 | Банг Тао | 2250 |
+| Suite Siena with Coworking, Gym, Pool by beach | Сьют | 1 | Банг Тао, Лаян | 2269 |
+| Suite Imola, Gym & Pool close to beach – Bellevue | Сьют | 1 | Банг Тао, Лаян | 2282 |
+| Tavira 1br Suite at Kora Beach Resort | Квартира | 1 | Банг Тао, Лаян | 2335 |
+| Suite Riva with Gym, Coworking & Pool access | Квартира | 1 | Банг Тао, Лаян | 2389 |
+| Suite Talaud / Rawai beachfront / by Tropiclook | Кондо | 1 | Най Харн, Равай | 2416 |
+| Suite Jaffa at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2492 |
+| Safi 1br suite — The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 2511 |
+| Suite Berhala beautiful 1br at Naiharn beach | Квартира | 1 | Най Харн, Равай | 2528 |
+| Suite Gozo at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2590 |
+| Lucca Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2624 |
+| Luso Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2697 |
+| Fura Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2748 |
+| Lagos Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2751 |
+| Mosa Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2889 |
+| Aspet 1br Suite at Kora Beach Resort | Квартира | 1 | Банг Тао, Лаян | 2921 |
+| Menton Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 2967 |
+| Tinos 1br Suite at Kora Beach Resort | Квартира | 1 | Банг Тао, Лаян | 2970 |
+| Suite Atar 1br at Above Element bang tao | Квартира | 1 | Банг Тао | 3000 |
+| Vera Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 3023 |
+| Lourm 1br pool access suite at Title Legendary | Квартира | 1 | Банг Тао | 3200 |
+| Meta Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 3271 |
+| Suite Fam 1br at Lago by Tropiclook | Квартира | 1 | Най Харн, Равай | 3343 |
+| Nora 1br suite - The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 3412 |
+| Lindos 1br suite - The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 3431 |
+| Asti Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 3491 |
+| Lamia 1br suite at Kora Beach Resort | Квартира | 1 | Банг Тао, Лаян | 3782 |
+| Rafa 1br suite - The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 4265 |
+| Altea 1br suite - The Title Legendary Bangtao | Квартира | 1 | Банг Тао | 4475 |
+| Porto 1br pool access suite at Title Legendary | Квартира | 1 | Банг Тао | 4725 |
+| Rians 1br Suite — The Title Legendary bangtao | Квартира | 1 | Банг Тао | 5551 |
+| Milos High floor 1br with Pool access at The Aqua | Кондо | 1 | Банг Тао, Патонг | 8310 |
+| Chios - Lakeview 1br apartment at The Aqua Phuket | Кондо | 1 | Банг Тао, Патонг | 8310 |
+| Samos - Stylish 1br apartment at The Aqua Phuket | Кондо | 1 | Банг Тао, Патонг | 9929 |
+| Ramla Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 33719 |
+| Rosa Studio at Sea Heaven Naithon beach | Квартира | 1 | Найтон | 33719 |
+| Suite Avila 2br , Gym & Pool close to beach | Квартира | 2 | Банг Тао, Лаян | 2350 |
+| Suite Montero Rawai Lago by Tropiclook | Квартира | 2 | Най Харн, Равай | 2412 |
+| Suite Vinto 2br at Lago by Tropiclook | Квартира | 2 | Най Харн, Равай | 2438 |
+| Suite Reus 2br with rooftop pool -SkyPark Celeste | Квартира | 2 | Банг Тао | 2650 |
+| Melia 2br with Rooftop Pool - Skypark Laguna | Квартира | 2 | Банг Тао | 2700 |
+| Villa Miriama 2 bedroom / Near Naiharn Beach | Вилла | 2 | Най Харн | 2900 |
+| Bormes 2br Suite at Sea Heaven Naithon beach | Квартира | 2 | Найтон | 2902 |
+| Suite Akko 2br at Lago by Tropiclook | Квартира | 2 | Най Харн, Равай | 2912 |
+| Villa Nama 2br pool villa at Akara Nai Thon | Вилла | 2 | Банг Тао | 3000 |
+| Villa Nama 2br pool villa at Akara Nai Thon | Вилла | 2 | Банг Тао | 3000 |
+| Villa Apolima 2br pool villa at Akara Nai Thon | Вилла | 2 | Банг Тао | 3150 |
+| Villa Ata 2br private pool / Nai harn beach | Вилла | 2 | Най Харн | 3300 |
+| Suite Melos 2br / pool & gym access / Ozone | Кондо | 2 | Банг Тао | 3700 |
+| Villa Neya 2br private pool Close to Naiharn beach | Вилла | 2 | Най Харн | 3744 |
+| Villa Kiana 2br private pool 10 min to Nai Harn | Вилла | 2 | Най Харн, Равай | 3900 |
+| Tossa 2br Suite — Diamond Resort Bangtao | Квартира | 2 | Банг Тао, Камала | 3927 |
+| Lugo 2br Suite — Diamond Resort Bangtao | Квартира | 2 | Банг Тао, Камала | 3933 |
+| Tirat 2br Suite at Kora Beach resort | Квартира | 2 | Банг Тао, Лаян | 4000 |
+| Suite Anafi 2br / pool & gym access / Ozone | Кондо | 2 | Банг Тао | 4046 |
+| Loro 2br Suite at Kora Beach Resort | Квартира | 2 | Банг Тао, Лаян | 4100 |
+| Villa Emere 2br private pool / Nai Harn beach | Вилла | 2 | Най Харн | 4358 |
+| Villa Aru private pool 3 min to Naiharn Beach | Вилла | 2 | Най Харн | 4400 |
+| Villa Awa 2br private pool Naiharn beach | Вилла | 2 | Най Харн | 4500 |
+| Villa Iotama private pool Nai Harn Beach | Вилла | 2 | Най Харн | 4508 |
+| Villa Hemi 2br Modern Thai style with Private pool | Вилла | 2 | Най Харн, Равай | 4800 |
+| Suite Salina 2br / pool & gym access / Ozone | Кондо | 2 | Банг Тао | 4817 |
+| Ruma 2br private pool villa at Akara Nai Thon | Вилла | 2 | Банг Тао | 5277 |
+| Villa Java 2br private pool at Nai Harn Beach | Вилла | 2 | Най Харн | 5414 |
+| Villa Mios private pool 3 min Nai Harn Beach | Вилла | 2 | Най Харн | 5602 |
+| Villa Emauha / pool / Thaimond residence / Naiharn | Вилла | 2 | Най Харн | 5872 |
+| Villa Emiemi / pool / Thaimond residence / Naiharn | Вилла | 2 | Най Харн | 5942 |
+| Qabalah 2br villa, Pool & Rooftop Near Bangtao | Вилла | 2 | Банг Тао | 6079 |
+| Villa Galam 2br private pool Naiharn beach | Вилла | 2 | Най Харн | 6083 |
+| Villa Plunge / Modern 2-bedroom with Private Pool | Вилла | 2 | Най Харн | 6202 |
+| Suite Arami 2br apartments facing pool 3rd floor | Квартира | 2 | Най Харн, Равай | 7500 |
+| Villa Moana 2br private pool Naiharn beach | Вилла | 2 | Най Харн | 8435 |
+| Villa Hinako private pool Nai Harn Beach | Вилла | 2 | Най Харн | 9701 |
+| Villa Bellona 2br pool villa at Akara Nai Thon | Вилла | 2 | Банг Тао | 11000 |
+| Villa Ikaroa private pool villa Kokyang Estate | Вилла | 2 | Най Харн | 12500 |
+| Traditional Thai 2br villa in Baan Bua Estate | Вилла | 2 | Най Харн | 18000 |
+| Kea 2BR Suite at Kora Beach Resort | Квартира | 2 | Банг Тао, Лаян | 18000 |
+| Villa Hahana private pool Near Naiharn Beach | Вилла | 3 | Най Харн | 3300 |
+| Villa Kauri 3-bedroom pool villa at Aileen Naithon | Вилла | 3 | Банг Тао, Лаян, Найтон | 3600 |
+| Villa Laut 3br private pool /10 min to Nai Harn | Вилла | 3 | Най Харн | 3800 |
+| Solano Tropical 3br pool villa at Bang Tao | Вилла | 3 | Банг Тао, Лаян | 3800 |
+| Villa Bulan with 3br  with Yoga house / Naiharn | Вилла | 3 | Най Харн | 4000 |
+| Villa Iorangi / 3 Bedroom Private Pool | Вилла | 3 | Най Харн, Равай, Ката, Карон | 4100 |
+| Villa Kaheru private pool Near Nai Harn beach | Вилла | 3 | Най Харн | 4500 |
+| Villa Atarata private pool Nai Harn Beach | Вилла | 3 | Най Харн | 4700 |
+| Villa Haeata 3br pivate pool Nai Harn Beach | Вилла | 3 | Най Харн | 4739 |
+| Villa Flores 3br private pool /10 min to Nai Harn | Вилла | 3 | Най Харн | 4746 |
+| Villa Pagai pool villa Baan Bua Estate naiharn | Вилла | 3 | Най Харн | 5000 |
+| Villa Leti 22 meters pool Naiharn Beach | Вилла | 3 | Най Харн, Промтеп | 5158 |
+| Villa Togian private pool naiharn beach | Вилла | 3 | Най Харн | 5500 |
+| Villa Bond / 3br private pool / near Naiharn Beach | Вилла | 3 | Най Харн | 5932 |
+| Villa Emilia private pool Naiharn Beach | Вилла | 3 | Най Харн | 6400 |
+| Villa Hanga 3b private pool at Naiharn Beach | Вилла | 3 | Най Харн | 6501 |
+| Luxury 3br villa Eden with Private Pool | Вилла | 3 | Банг Тао, Лаян | 6800 |
+| Monsar 3BR Suite at Laguna Beachside Residences | Квартира | 3 | Банг Тао | 6900 |
+| Aveiro 3br suite — Cassia Residences at BangTao | Квартира | 3 | Банг Тао | 7200 |
+| Moura 3br suite - Beachfront Pearl of Naithon | Квартира | 3 | Найтон | 7205 |
+| Villa Buton private pool Nai Harn beach | Вилла | 3 | Най Харн | 7376 |
+| Villa Raas 3br private pool Naiharn beach | Вилла | 3 | Най Харн | 7480 |
+| Luxury 3br villa Wallaya with Private Pool | Вилла | 3 | Банг Тао, Лаян | 7500 |
+| Luxury 3br villa Wallaya with Private Pool | Вилла | 3 | Банг Тао, Лаян | 7500 |
+| Arana Luxe 3br pool villa at Botanica Four Seasons | Вилла | 3 | Банг Тао, Лаян | 7900 |
+| Villa Toba pool Baan Bua Estate naiharn beach | Вилла | 3 | Най Харн | 9402 |
+| Villa Aura / 3br private pool / Near Naiharn Beach | Вилла | 3 | Най Харн | 9439 |
+| Villa Heni private pool 3br Naiharn beach | Вилла | 3 | Най Харн | 9697 |
+| Modern 3br villa Kaimana with Private Pool | Вилла | 3 | Банг Тао, Лаян | 11092 |
+| Villa Pulau 3 bedroom Baan Bua Estate | Вилла | 3 | Най Харн | 14000 |
+| Private 3br pool villa Mana at Anchan Tropicana | Вилла | 3 | Банг Тао, Лаян | 15000 |
+| PALMS GARDEN | Вилла | 3 | Равай | 101000 |
+| Villa Raja 4br Private pool villa | Вилла | 4 | Най Харн, Равай | 5000 |
+| Villa Bangka 4br Private pool villa Rawai | Вилла | 4 | Най Харн, Равай | 5000 |
+| Villa Salika / Thai Balinese pool villa / Rawai | Вилла | 4 | Най Харн, Равай | 5000 |
+| Villa Rangi 4br pool villa at Aileen Villas Layan | Вилла | 4 | Банг Тао, Лаян | 5400 |
+| Villa Rawa 4br pool villa at Aileen Villas Layan | Вилла | 4 | Банг Тао, Лаян | 5400 |
+| Villa Fam with private pool Near Nai Harn beach | Вилла | 4 | Най Харн | 5500 |
+| Villa Mauri – Modern 4br villa with Private Pool | Вилла | 4 | Най Харн, Равай, Промтеп | 5500 |
+| Villa Koa 4br pool villa at Aileen Villas Layan | Вилла | 4 | Банг Тао, Лаян | 6500 |
+| Meraya Villa with private pool Near Nai Harn beach | Вилла | 4 | Най Харн | 7000 |
+| Villa Bawal 4br Private pool villa | Вилла | 4 | Най Харн, Равай | 8877 |
+| Luxury 4br Rua pool villa Botanica Prestige | Вилла | 4 | Банг Тао, Лаян, Найтон | 23000 |
+| DREAM GARDEN | Вилла | 4 | Равай | 30000 |
+| ELENA PARADISE | Вилла | 4 | Равай | 35000 |
+| MARGO VILLA | Вилла | 4 | Равай | 45000 |
+| PARADISE RAWAI | Вилла | 4 | Равай | 250000 |
 
-**3. ELENA PARADISE — Равай**
-- 4 спальни, жилая площадь 350 м², участок 650 м²
-- Частный бассейн 10×5 м, открытая кухня, sala (беседка), винный погреб
-- Крытая парковка на 2 авто, видеодомофон
-- В пешей доступности: главная улица, 7-Eleven, АЗС, рестораны, магазины
-- Включено: уборка и прачечная 1 раз в неделю, вода, уход за садом и бассейном,
-ТВ-приставка. Электричество — 7 бат/кВт·ч
-
-**4. MARGO VILLA — Равай (Сои Хокян)**
-- 4 спальни, 5 ванных, участок 760 м²
-- Большой частный бассейн 15×8 м, просторная терраса с ТВ
-- Кухня с посудомоечной машиной, стиральная машина, ТВ 55"
-- 5 минут до пляжей Най Харн и Равай
-- Включено: вода, WiFi, уход за садом и бассейном, еженедельная уборка
-с прачечной. Электричество — 7 бат/кВт·ч
-
-**5. PALMS GARDEN — Равай**
-- 3 спальни, 3 ванные, жилая площадь 250 м², участок 800 м²
-- Частный бассейн 12×5 м, пальмовый сад, открытая кухня с беседкой
-- Смарт-ТВ 85" (Box TV + Netflix), стиральная машина, фонтан
-- Крытая парковка на 2 авто, электрические ворота, высокоскоростной WiFi
-- 10 минут до пляжей Най Харн и Равай
-- Включено: еженедельная уборка со сменой белья, уход за бассейном и садом
-(2 раза в неделю), вода. Электричество — 7 бат/кВт·ч.
-Дополнительная уборка — 2 500 бат
-
-**6. PARADISE RAWAI — Равай**
-- 4 спальни, 3 ванные + кабинет с сейфом, жилая площадь 450 м², участок 1 800 м²
-- Бассейн 12×5 м с джакузи, ТВ 75" с премиальной аудиосистемой
-- Электрические шторы, кухня европейского стандарта, гриль для барбекю,
-отдельная прачечная (стиральная + сушильная машины)
-- 20 солнечных панелей (10 кВт), глубокая скважина, автоматический полив
-- Включено: вода, уход за садом и бассейном, еженедельная уборка + прачечная,
-Netflix, высокоскоростной WiFi. Электричество — 7 бат/кВт·ч
-
-**Цены и доступность по каждой вилле уточняйте у менеджера**
+**Цены и доступность по каждому объекту уточняйте у менеджера**
 (см. «Как связаться с живым менеджером?»).
 
 ### Можно ли купить недвижимость на Пхукете?
