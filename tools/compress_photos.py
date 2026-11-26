@@ -19,11 +19,14 @@ from PIL import Image
 
 REPO = sys.argv[1] if len(sys.argv) > 1 else os.environ.get("PHOTOS_REPO")
 if not REPO:
-    print("Usage: compress_photos.py <repo_dir>")
+    print("Usage: compress_photos.py <repo_dir> [limit_mb]")
     sys.exit(1)
 
-LIMIT = 3 * 1024 * 1024          # 3 MB hard limit
-TARGET = 2.5 * 1024 * 1024       # aim a bit under the limit
+# Hard limit (MB). Default 1.5 MB — Telegram reliably downloads photos up to
+# ~1.7 MB but fails on ~2.3-2.5 MB (WEBPAGE_CURL_FAILED), so keep a margin.
+LIMIT_MB = float(sys.argv[2]) if len(sys.argv) > 2 else 1.5
+LIMIT = int(LIMIT_MB * 1024 * 1024)
+TARGET = int(LIMIT * 0.85)          # aim a bit under the limit
 EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 
 def file_size(path):
@@ -53,27 +56,19 @@ def compress_one(path):
     except Exception as e:
         return ("skip", path, orig, orig, f"open error: {e}")
 
-    # Phase 1: reduce quality at original resolution.
-    for q in (85, 80, 75, 70, 65, 60, 55, 50, 45, 40):
-        tmp, size = try_save_jpeg(base, path, q, max_dim=None)
-        if size <= TARGET:
-            os.replace(tmp, path)
-            return ("ok", path, orig, size, f"q={q}")
-        os.remove(tmp)
-
-    # Phase 2: downscale + quality.
-    for scale in (0.85, 0.75, 0.65, 0.55, 0.45, 0.35):
-        w, h = base.size
-        max_dim = int(max(w, h) * scale)
-        for q in (80, 75, 70, 65, 60):
+    # Fast path: downscale to a max dimension (enough for Telegram) and pick a
+    # quality. Working on a ~1600px image is far cheaper than the original
+    # (which can be 6000px+), so this is much faster than quality-only loops.
+    for max_dim in (1600, 1280, 1024, 800):
+        for q in (85, 80, 75, 70, 65, 60):
             tmp, size = try_save_jpeg(base, path, q, max_dim=max_dim)
             if size <= TARGET:
                 os.replace(tmp, path)
-                return ("ok", path, orig, size, f"scale={scale} q={q}")
+                return ("ok", path, orig, size, f"dim={max_dim} q={q}")
             os.remove(tmp)
 
     # Last resort: smallest reasonable output.
-    tmp, size = try_save_jpeg(base, path, 50, max_dim=int(max(base.size) * 0.3))
+    tmp, size = try_save_jpeg(base, path, 50, max_dim=640)
     if size <= LIMIT:
         os.replace(tmp, path)
         return ("ok", path, orig, size, "fallback")
@@ -93,7 +88,7 @@ def main():
                     files.append(p)
 
     files.sort()
-    print(f"Files > 3 MB: {len(files)}")
+    print(f"Files > {LIMIT_MB} MB: {len(files)}")
     ok = fail = skip = 0
     saved_total = 0
     for p in files:
